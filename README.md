@@ -66,3 +66,23 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Mock server
+
+### Available APIs
+
+#### Products
+
+`GET api/products`
+
+returns products
+
+### Server scripts
+
+`npm run start-server`
+
+Use to start the server
+
+The endpoints available under `http://localhost:3300` host, e.g.:
+
+`http://localhost:3300/api/products`
