@@ -8,7 +8,7 @@ const DisplayFront = props => {
     <React.Fragment>
       <img src={src} alt="" />
       <h4>{title}</h4>
-      <span className="highlighted">{price}</span>
+      <span className="highlighted">{`${price} $`}</span>
     </React.Fragment>
   );
 };

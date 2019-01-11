@@ -1,95 +1,26 @@
 import React from 'react';
 import styles from './ProductContainer.module.scss';
 import Carousel from '../Carousel/Carousel';
-
-import jacket1 from '../../../assets/products/coats/running-jacket.png';
+import HttpService from '../../../utils/http.service';
+import appConfig from '../../../config/appConfig';
 
 class ProductContainer extends React.Component {
-  state = {
-    products: [
-      {
-        id: 9000,
-        src: jacket1,
-        title: 'Reebok Track Jacket',
-        price: '100$',
-        sizes: ['s', 'm', 'l', 'xl'],
-        colors: ['#e12e3f', '#34404b', '#3ab3ff', '#2fd967']
-      },
-      {
-        id: 9070,
-        src: jacket1,
-        title: 'Reebok Track Jacket',
-        price: '100$',
-        sizes: ['s', 'm', 'l', 'xl'],
-        colors: ['#e12e3f', '#34404b', '#3ab3ff', '#2fd967']
-      },
-      {
-        id: 9010,
-        src: jacket1,
-        title: 'Reebok Track Jacket',
-        price: '100$',
-        sizes: ['s', 'm', 'l', 'xl'],
-        colors: ['#e12e3f', '#34404b', '#3ab3ff', '#2fd967']
-      },
-      {
-        id: 90900,
-        src: jacket1,
-        title: 'Reebok Track Jacket',
-        price: '100$',
-        sizes: ['s', 'm', 'l', 'xl'],
-        colors: ['#e12e3f', '#34404b', '#3ab3ff', '#2fd967']
-      },
-      {
-        id: 93400,
-        src: jacket1,
-        title: 'Reebok Track Jacket',
-        price: '100$',
-        sizes: ['s', 'm', 'l', 'xl'],
-        colors: ['#e12e3f', '#34404b', '#3ab3ff', '#2fd967']
-      },
-      {
-        id: 10900,
-        src: jacket1,
-        title: 'Reebok Track Jacket',
-        price: '100$',
-        sizes: ['s', 'm', 'l', 'xl'],
-        colors: ['#e12e3f', '#34404b', '#3ab3ff', '#2fd967']
-      },
-      {
-        id: 401900,
-        src: jacket1,
-        title: 'Reebok Track Jacket',
-        price: '100$',
-        sizes: ['s', 'm', 'l', 'xl'],
-        colors: ['#e12e3f', '#34404b', '#3ab3ff', '#2fd967']
-      },
-      {
-        id: 900,
-        src: jacket1,
-        title: 'Reebok Track Jacket',
-        price: '100$',
-        sizes: ['s', 'm', 'l', 'xl'],
-        colors: ['#e12e3f', '#34404b', '#3ab3ff', '#2fd967']
-      },
-      {
-        id: 90910,
-        src: jacket1,
-        title: 'Reebok Track Jacket',
-        price: '100$',
-        sizes: ['s', 'm', 'l', 'xl'],
-        colors: ['#e12e3f', '#34404b', '#3ab3ff', '#2fd967']
-      }
-    ]
-  };
-
   title = 'New Arrivals';
 
+  state = { products: [] };
+
+  componentDidMount() {
+    HttpService.get(appConfig.apiResources.products).then(res =>
+      this.setState({ products: [...res.products] })
+    );
+  }
+
   render() {
-    const titleArr = this.title.split(' ');
     const { products } = this.state;
+    const titleArr = this.title.split(' ');
 
     return (
-      <section className={`${styles.products}`}>
+      <section className={`${styles.products} container`}>
         <div className={styles.products_heading}>
           <h2>
             <span className="highlighted">{titleArr[0]}</span>

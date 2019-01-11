@@ -9,8 +9,9 @@ class ProductItem extends Component {
     this.itemRef = React.createRef();
   }
 
-  toggleView = () =>
-    this.setState(state => ({ showDetails: !state.showDetails }));
+  showFront = () => this.setState({ showDetails: false });
+
+  showDetails = () => this.setState({ showDetails: true });
 
   clickHandle = (e, id) => {
     e.preventDefault();
@@ -36,8 +37,8 @@ class ProductItem extends Component {
       <div
         ref={this.itemRef}
         className={styles.product_card}
-        onMouseLeave={this.toggleView}
-        onMouseEnter={this.toggleView}
+        onMouseEnter={this.showDetails}
+        onMouseLeave={this.showFront}
       >
         {cardView}
       </div>

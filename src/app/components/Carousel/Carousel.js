@@ -26,18 +26,18 @@ class Carousel extends Component {
   };
 
   nextSlide = () => {
-    console.log(
-      this.carouselStyle.width,
-      this.carouselStyle.translation,
-      this.wrapperRef.current.offsetWidth
-    );
+    // console.log(
+    //   this.carouselStyle.width,
+    //   this.carouselStyle.translation,
+    //   this.wrapperRef.current.offsetWidth
+    // );
 
-    console.log(
-      (this.carouselStyle.width +
-        this.carouselStyle.translation -
-        this.wrapperRef.current.offsetWidth) /
-        2
-    );
+    // console.log(
+    //   (this.carouselStyle.width +
+    //     this.carouselStyle.translation -
+    //     this.wrapperRef.current.offsetWidth) /
+    //     2
+    // );
 
     this.carouselStyle = {
       ...this.carouselStyle,
